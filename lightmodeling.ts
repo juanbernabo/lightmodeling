@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
   Meteor.startup(function() {
     var editor = CodeMirror(document.getElementById("editors"), {
-      value: "function myScript(){return 100;}\n",
+      value: "\nfunction myScript() { return 100; }\n",
       mode:  "typescript",
     });
   });

@@ -5,6 +5,7 @@ html {
   overflow: hidden;
   height: 100%;
 }
+
 body {
   background: #222;
   color: #CCC;
@@ -15,18 +16,15 @@ body {
 }
 
 #editors {
- display: inline-block;
- box-shadow: 0 0 15px #000;
- border-radius: 3px;
- width: 45%;
- margin-right: 5%;
- min-width: 500px;
- height: 80%;
- overflow: auto;
+  display: inline-block;
+  box-shadow: 0 0 15px #000;
+  border-radius: 3px;
+  width: 45%;
+  margin-right: 5%;
+  min-width: 500px;
+  height: 80%;
+  overflow: auto;
   background: #333;
-}
-
-#editors {
 }
 
 .page {
@@ -42,3 +40,26 @@ body {
   height: 100%;
   min-width: 800px;
 }
+
+#editors > li:last-child .CodeMirror {
+  margin-bottom: 40px;
+}
+
+#editors .CodeMirror.active {
+  background: #252525;
+}
+
+#editors .CodeMirror {
+  font-size: 13pt;
+  font-family: "Inconsolata", "Consolas", "Courier New", monospace;
+  display: inline-block;
+  min-width: 100%;
+  overflow: hidden;
+  padding: 2.5px 0;
+  border-bottom: 3px solid #222;
+  background: #222;
+  border-radius: 3px;
+  border: none;
+  
+}
+
