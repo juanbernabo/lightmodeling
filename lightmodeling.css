@@ -1,52 +1,36 @@
 /* CSS declarations go here */
 
-html {
-  background: #222;
-  overflow: hidden;
-  height: 100%;
-}
 
 body {
-  background: #222;
-  color: #CCC;
-  height: 100%;
-  font-family: "Verdana", "Courier New", monospace;
-  font-size: 10pt;
-  overflow: hidden;
+  height: 85%;
+  max-height: 85%;
+}
+
+.container-fluid {
+  margin-top: 60px;
+  height: 900px;
+  overflow: auto;
 }
 
 #editors {
   display: inline-block;
   box-shadow: 0 0 15px #000;
   border-radius: 3px;
-  width: 45%;
   margin-right: 5%;
-  min-width: 500px;
-  height: 80%;
   overflow: auto;
   background: #333;
 }
 
-.page {
-  position: absolute;
-  padding: 2.5% 3%;
-  width: 94%;
-  height: 95%;
-  overflow: auto;
-}
-
-#wrapper {
-  overflow-x: hidden;
-  height: 100%;
-  min-width: 800px;
-}
-
-#editors > li:last-child .CodeMirror {
+#editors > div:last-child .CodeMirror {
   margin-bottom: 40px;
 }
 
 #editors .CodeMirror.active {
   background: #252525;
+}
+
+#editors div .CodeMirror {
+  border-bottom: 3px solid #111;
 }
 
 #editors .CodeMirror {
@@ -56,10 +40,14 @@ body {
   min-width: 100%;
   overflow: hidden;
   padding: 2.5px 0;
-  border-bottom: 3px solid #222;
+  border-bottom: 3px solid #111;
   background: #222;
   border-radius: 3px;
-  border: none;
-  
+  border: none;  
+}
+
+#output {
+  border-radius: 3px;
+  box-shadow: 0 0 0px #111;
 }
 

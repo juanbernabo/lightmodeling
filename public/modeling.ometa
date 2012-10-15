@@ -1,0 +1,45 @@
+
+ometa M {
+  digit = ^digit:d -> d.digitValue(),
+  number = number:n digit:d -> (n * 10 + d)
+	  | digit,
+  name = spaces <letter (letter | digit)*>,
+  agregation = "Agregation of" name:n -> [#agregation, n],
+  association = "Association to" name:n -> [#association, n],
+  type = "String" | "Decimal" | "Date" | agregation | association ,
+  property = name:n "as" type:t -> [#property, n, t],
+  properties = property*:p -> [#properties, p],
+  entityDef = "{" properties:p "}" -> [#entityDef, p],
+  entity = "entity" name:n entityDef:d -> [#entity, n, d],
+  
+  
+  
+  enum = "enum" name:n "{" "}" -> [#enum, n],
+  repository = "repository" name:n "for" name:f "{" "}" -> 
+  		[#repository, n, f],
+
+  concept = (entity|repository|enum),
+  concepts = concept*:c -> [#concepts, c],
+  domain = "domain" name:n "{" concepts:e "}" -> [#domain, n, e],
+  domains = domain*:d -> [#domains, d],
+  begin = domains:d -> [#begin, d]
+}
+
+ometa MToHtml {
+  trans = [:t apply(t):ans] -> ans,
+  property :name :type -> ("<label>" + name + "</label><input/>"),
+  properties [ trans*:e ] -> e.join(""),
+  entityDef trans:e -> e,
+  entity :name trans:e -> ("<form><fieldset><legend>" + name + 
+  		"</legend>" + e + "</fieldset></form>"),
+  repository :n :f -> "",
+  enum :n -> "",
+  concepts [ trans*:c ] -> c.join(""),
+  domain :name trans*:e -> ("<h1>" + name + "</h1>" + e.join("")),
+  domains [ trans*:d ]  -> d.join(""),
+  begin #begin trans:x end -> x 
+}
+
+ometa MToHtml1 {
+  begin #begin :d -> d
+}

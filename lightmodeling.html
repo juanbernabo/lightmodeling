@@ -3,14 +3,49 @@
 </head>
 
 <body>
-  <div id="wrapper">
-    <div class="page">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Project name</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
       {{> editors}}
+      {{> output}}
     </div>
   </div>
 </body>
 
 <template name="editors">
-  <ul id="editors" class="left">
-  </ul>
+  <div id="editors" class="span5">
+    {{#each codes}}
+      {{> editor }}
+    {{/each}}
+  </div>
+</template>
+
+<template name="editor">
+  <div/>
+</template>
+
+<template name="output">
+  <div id="output" class="span5">
+    <div id="contents">
+      {{contents}}
+    </div>
+  </div>
 </template>
